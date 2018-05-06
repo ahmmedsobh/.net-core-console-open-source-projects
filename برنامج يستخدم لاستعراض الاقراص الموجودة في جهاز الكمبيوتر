@@ -1,0 +1,13 @@
+Imports System
+'برنامج يستخدم لاستعراض الاقراص الموجودة في جهاز الكمبيوتر
+Module Program
+    Sub Main(args As String())
+        Dim drives() As String
+        drives = System.IO.Directory.GetLogicalDrives
+        For idriv = 0 To drives.GetUpperBound(0)
+            Console.WriteLine(drives(idriv))
+        Next
+        Console.ReadKey()
+
+    End Sub
+End Module
