@@ -1,0 +1,25 @@
+Imports System
+'برنامج لاختبار الارقام من 1 الى 10 فاذا كان الرقم زوجى يتم تربيعه
+Module Program
+    Class numtest
+        Public Function eventest(ByVal value As Integer)
+            If value Mod 2 = 0 Then
+                Return value * value
+            Else
+                Return 0
+            End If
+        End Function
+    End Class
+    Sub Main(args As String())
+        Dim numtest As New numtest()
+        For i = 0 To 10
+            If numtest.eventest(i) <> 0 Then
+                Console.WriteLine("number " & i & " is even number with square " & numtest.eventest(i))
+
+            Else
+                Console.WriteLine("number " & i & " is odd number  ")
+            End If
+        Next
+        Console.ReadKey()
+    End Sub
+End Module
