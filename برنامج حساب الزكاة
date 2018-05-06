@@ -1,0 +1,48 @@
+Imports System
+
+Module Program
+    Class zakah
+        'دالة حساب زكاة المال و الذهب والفضة
+        Function zakat(ByVal check As String)
+            Dim value As Double
+            Dim _zakat As Double
+            Select Case check
+                Case "A"
+                    Console.WriteLine("please enter money value")
+                    value = Console.ReadLine()
+                    _zakat = value * 0.025
+                    Console.WriteLine("al zacah = " & _zakat)
+                Case "B"
+                    Console.WriteLine("please enter gold value")
+                    value = Console.ReadLine()
+                    Console.WriteLine("please enter weight of gold ")
+                    Dim weight As Double = Console.ReadLine()
+                    _zakat = value * (2.5 * weight)
+                    Console.WriteLine("al zacah = " & _zakat)
+
+                Case "C"
+                    Console.WriteLine("please enter fada value")
+                    value = Console.ReadLine()
+                    Console.WriteLine("please enter weight of fada ")
+                    Dim weight As Double = Console.ReadLine()
+                    _zakat = value * (2.975 * weight)
+
+                    Console.WriteLine("al zacah = " & _zakat)
+                Case Else
+                    Console.WriteLine("not found in list")
+            End Select
+        End Function
+    End Class
+    Sub Main(args As String())
+        Dim zakah As New zakah
+        Dim check As String
+
+        Console.WriteLine("******* el zacat program ********")
+        Console.WriteLine("A. zacat el mal")
+        Console.WriteLine("B. zacat el fada")
+        Console.WriteLine("C. zacat el zahab")
+        check = Console.ReadLine()
+        Console.WriteLine(zakah.zakat(check.ToUpper))
+        Console.ReadKey()
+    End Sub
+End Module
