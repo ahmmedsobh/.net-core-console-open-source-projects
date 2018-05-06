@@ -1,0 +1,51 @@
+Imports System
+'برنامج لحساب القيمة النهائية للقاتورة الخاصة بالشركة بعد خصم الخصومات المحددة
+Module Program
+    Class bills
+        Overridable Function net(ByVal prod_name As String, ByVal unit_price As Double, ByVal unit_count As Double) As Double
+            Dim total, net_price As Integer
+            total = unit_count * unit_price
+            If total > 2500 Then
+                net_price = total - (total * 0.1)
+            ElseIf total > 5000 Then
+                net_price = total - (total * 0.15)
+            ElseIf total > 10000 Then
+                net_price = total - (total * 0.25)
+            Else
+                net_price = total
+            End If
+            Return net_price
+        End Function
+    End Class
+
+    Class foriner
+        Inherits bills
+        Public Overrides Function net(ByVal prod_name As String, ByVal unit_price As Double, ByVal unit_count As Double) As Double
+            Dim conversationrate As Integer = 2
+            Return MyBase.net(prod_name, unit_price, unit_count) * conversationrate
+        End Function
+
+
+    End Class
+    Sub Main(args As String())
+        Dim obj1 As New bills
+        Dim prod_name As String
+        Console.WriteLine("please enter products name")
+        prod_name = Console.ReadLine
+
+        Dim units_count As Integer
+        Console.WriteLine("enter the number of units ")
+        units_count = Console.ReadLine
+
+        Dim unit_price As Integer
+        Console.WriteLine("enter  price of unit ")
+        unit_price = Console.ReadLine
+
+        Console.WriteLine("value of bill is " & obj1.net(prod_name, unit_price, units_count))
+
+        Dim obj2 As New foriner
+        Console.WriteLine("value of bill for forigners is " & obj2.net(prod_name, unit_price, units_count))
+        Console.ReadLine()
+
+    End Sub
+End Module
