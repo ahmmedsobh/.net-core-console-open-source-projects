@@ -1,0 +1,15 @@
+Imports System
+'برنامج يعرض كل المجلدات التى يبدا اسنها باى حرق يليه system وذلك تحت مسمى windows
+Module Program
+    Sub Main(args As String())
+        Dim dirs() As String
+        dirs = System.IO.Directory.GetDirectories("c:\WINDOWS", "*SYSTEM*")
+        Dim dir As String
+        Console.WriteLine(dirs.Length & " folder match the pattern *SYSTEM* ")
+
+        For Each dir In dirs
+            Console.WriteLine(dir)
+        Next
+        Console.ReadKey()
+    End Sub
+End Module
