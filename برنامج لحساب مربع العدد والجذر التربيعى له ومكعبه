@@ -1,0 +1,20 @@
+Imports System
+'برنامج لحساب مربع العدد والجذر التربيعى له ومكعبه
+Class number
+    Public Function numper(ByVal num As Integer)
+        Dim square As Integer = num * num
+        Dim square_root As Integer = Math.Sqrt(num)
+        Dim cube As Integer = num * num * num
+        Dim msg As String = " number square is " & square.ToString & vbCrLf & " number square root is " & square_root.ToString & vbCrLf & " number cube is " & cube.ToString
+        Return msg
+    End Function
+End Class
+Module Program
+    Sub Main(args As String())
+        Dim number As New number()
+        Console.WriteLine("enter number ")
+        Dim num As Integer = Console.ReadLine()
+        Console.WriteLine(number.numper(num))
+        Console.ReadKey()
+    End Sub
+End Module
