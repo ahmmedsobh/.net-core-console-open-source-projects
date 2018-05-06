@@ -1,0 +1,17 @@
+Imports System
+'برنامج يستخدم لاستعراض المجلدات والملفات الموجودة في المجلد program files 
+Module Program
+    Sub Main(args As String())
+        Dim items() As String
+        Dim path As String = "c:\program files"
+        items = System.IO.Directory.GetFileSystemEntries(path)
+        For Each itm In items
+            If System.IO.Directory.Exists(itm) Then
+                Console.WriteLine("FOLDER " & itm)
+            Else
+                Console.WriteLine("file" & itm)
+            End If
+        Next
+        Console.ReadKey()
+    End Sub
+End Module
